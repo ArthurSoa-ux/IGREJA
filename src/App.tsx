@@ -87,7 +87,7 @@ export default function App() {
 
     try {
       // ⚠️ IMPORTANTE: Substitua a URL abaixo pelo seu Webhook do Make
-      const WEBHOOK_URL = "https://hook.us2.make.com/v3xgwpldc6vtcdrnw9xttdd0kfo9x2wr"
+      const WEBHOOK_URL = "https://hook.us2.make.com/cxp2j6xfl93v5syxvfel4978u8y6tywi"
 
       const response = await fetch(WEBHOOK_URL, {
         method: "POST",
