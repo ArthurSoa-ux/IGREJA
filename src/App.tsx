@@ -87,25 +87,18 @@ export default function App() {
 
     try {
       // ⚠️ IMPORTANTE: Substitua a URL abaixo pelo seu Webhook do Make
-      // Exemplo: "https://hook.us1.make.com/xxxxxxxxxxxxxxxxxxxxxx"
       const WEBHOOK_URL = "https://hook.us2.make.com/v3xgwpldc6vtcdrnw9xttdd0kfo9x2wr"
 
-      // Se a URL ainda for o placeholder, apenas simula para não dar erro
-      if (WEBHOOK_URL === "https://hook.us2.make.com/v3xgwpldc6vtcdrnw9xttdd0kfo9x2wr") {
-        await new Promise((resolve) => setTimeout(resolve, 2000))
-        console.log("Simulação (URL não configurada):", data)
-      } else {
-        const response = await fetch(WEBHOOK_URL, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(data),
-        })
+      const response = await fetch(WEBHOOK_URL, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      })
 
-        if (!response.ok) {
-          throw new Error("Erro ao enviar dados para o Make")
-        }
+      if (!response.ok) {
+        throw new Error("Erro ao enviar dados para o Make")
       }
       
       console.log("Dados enviados:", data)
