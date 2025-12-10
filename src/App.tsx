@@ -101,7 +101,6 @@ export default function App() {
         throw new Error("Erro ao enviar dados para o Make")
       }
       
-      console.log("Dados enviados:", data)
       setSubmitted(true)
     } catch (error) {
       console.error("Erro no envio:", error)
