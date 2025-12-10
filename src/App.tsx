@@ -151,11 +151,13 @@ export default function App() {
       >
         {/* Logo Placeholder */}
         <div className="flex flex-col items-center justify-center space-y-2">
-          <div className="h-20 w-20 bg-zinc-900/80 backdrop-blur-md rounded-2xl border border-zinc-800 flex items-center justify-center shadow-2xl shadow-cyan-900/20">
-             {/* Substitua por sua Logo */}
-             <Church className="h-10 w-10 text-white" />
+          <div className="h-24 w-24 bg-zinc-900/80 backdrop-blur-md rounded-2xl border border-zinc-800 flex items-center justify-center shadow-2xl shadow-cyan-900/20 p-4">
+             <img src="/simbolo.png" alt="Logo Batista Genesis" className="w-full h-full object-contain" />
           </div>
-          <h1 className="text-xl font-medium tracking-wide text-zinc-200">Minha Igreja</h1>
+          <div className="flex flex-col items-center justify-center ">
+            <h1 className="text-xl font-medium tracking-wide text-zinc-200">Igreja Batista Génesis</h1>
+            <span className="text-sm text-zinc-400">Riacho Fundo 2</span>
+          </div>
         </div>
 
         {/* Formulário */}
