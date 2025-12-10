@@ -84,11 +84,38 @@ export default function App() {
 
   const onSubmit = async (data: FormData) => {
     setIsSubmitting(true)
-    // Simular envio
-    await new Promise((resolve) => setTimeout(resolve, 2000))
-    console.log(data)
-    setIsSubmitting(false)
-    setSubmitted(true)
+
+    try {
+      // ⚠️ IMPORTANTE: Substitua a URL abaixo pelo seu Webhook do Make
+      // Exemplo: "https://hook.us1.make.com/xxxxxxxxxxxxxxxxxxxxxx"
+      const WEBHOOK_URL = "https://hook.us2.make.com/v3xgwpldc6vtcdrnw9xttdd0kfo9x2wr"
+
+      // Se a URL ainda for o placeholder, apenas simula para não dar erro
+      if (WEBHOOK_URL === "https://hook.us2.make.com/v3xgwpldc6vtcdrnw9xttdd0kfo9x2wr") {
+        await new Promise((resolve) => setTimeout(resolve, 2000))
+        console.log("Simulação (URL não configurada):", data)
+      } else {
+        const response = await fetch(WEBHOOK_URL, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(data),
+        })
+
+        if (!response.ok) {
+          throw new Error("Erro ao enviar dados para o Make")
+        }
+      }
+      
+      console.log("Dados enviados:", data)
+      setSubmitted(true)
+    } catch (error) {
+      console.error("Erro no envio:", error)
+      alert("Houve um erro ao enviar o cadastro. Por favor, tente novamente.")
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   if (submitted) {
